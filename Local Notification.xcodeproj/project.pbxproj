@@ -14,6 +14,8 @@
 		52657BEB23FEE133005AFC66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52657BEA23FEE133005AFC66 /* Assets.xcassets */; };
 		52657BEE23FEE133005AFC66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52657BEC23FEE133005AFC66 /* LaunchScreen.storyboard */; };
 		52657BF923FEE133005AFC66 /* Local_NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52657BF823FEE133005AFC66 /* Local_NotificationTests.swift */; };
+		52657C0423FEE89F005AFC66 /* CreateNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52657C0323FEE89F005AFC66 /* CreateNotificationVC.swift */; };
+		52657C0623FEEB07005AFC66 /* PendingNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52657C0523FEEB07005AFC66 /* PendingNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		52657BF423FEE133005AFC66 /* Local NotificationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Local NotificationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52657BF823FEE133005AFC66 /* Local_NotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Local_NotificationTests.swift; sourceTree = "<group>"; };
 		52657BFA23FEE133005AFC66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52657C0323FEE89F005AFC66 /* CreateNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationVC.swift; sourceTree = "<group>"; };
+		52657C0523FEEB07005AFC66 /* PendingNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				52657BEA23FEE133005AFC66 /* Assets.xcassets */,
 				52657BEC23FEE133005AFC66 /* LaunchScreen.storyboard */,
 				52657BEF23FEE133005AFC66 /* Info.plist */,
+				52657C0323FEE89F005AFC66 /* CreateNotificationVC.swift */,
+				52657C0523FEEB07005AFC66 /* PendingNotification.swift */,
 			);
 			path = "Local Notification";
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				52657BE623FEE130005AFC66 /* NotificationVC.swift in Sources */,
+				52657C0623FEEB07005AFC66 /* PendingNotification.swift in Sources */,
+				52657C0423FEE89F005AFC66 /* CreateNotificationVC.swift in Sources */,
 				52657BE223FEE130005AFC66 /* AppDelegate.swift in Sources */,
 				52657BE423FEE130005AFC66 /* SceneDelegate.swift in Sources */,
 			);

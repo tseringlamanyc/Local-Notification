@@ -16,7 +16,9 @@ class NotificationVC: UIViewController {
     // data for table view
     private var notifications = [UNNotificationRequest]() {
         didSet {
-            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -27,8 +29,16 @@ class NotificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        center.delegate = self
         checkForAuthorization()
         loadNotifications()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nvc = segue.destination as? UINavigationController, let createVC = nvc.viewControllers.first as? CreateNotificationVC else {
+            fatalError()
+        }
+        createVC.delegate = self
     }
     
     private func checkForAuthorization() {
@@ -60,7 +70,6 @@ class NotificationVC: UIViewController {
             self.notifications = request
         }
     }
-
 }
 
 extension NotificationVC: UITableViewDataSource {
@@ -72,6 +81,17 @@ extension NotificationVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath)
         return cell
     }
-    
-    
+}
+
+extension NotificationVC: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // foreground (in screen)
+        completionHandler(.alert)
+    }
+}
+
+extension NotificationVC: CreateNotificationDelegate {
+    func didCreateNotification(createNotificationVC: CreateNotificationVC) {
+        loadNotifications()
+    }
 }

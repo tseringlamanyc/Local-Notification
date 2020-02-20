@@ -16,6 +16,7 @@
 		52657BF923FEE133005AFC66 /* Local_NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52657BF823FEE133005AFC66 /* Local_NotificationTests.swift */; };
 		52657C0423FEE89F005AFC66 /* CreateNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52657C0323FEE89F005AFC66 /* CreateNotificationVC.swift */; };
 		52657C0623FEEB07005AFC66 /* PendingNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52657C0523FEEB07005AFC66 /* PendingNotification.swift */; };
+		52657C0823FEF3AE005AFC66 /* 246007.png in Resources */ = {isa = PBXBuildFile; fileRef = 52657C0723FEF3AE005AFC66 /* 246007.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		52657BFA23FEE133005AFC66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52657C0323FEE89F005AFC66 /* CreateNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationVC.swift; sourceTree = "<group>"; };
 		52657C0523FEEB07005AFC66 /* PendingNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingNotification.swift; sourceTree = "<group>"; };
+		52657C0723FEF3AE005AFC66 /* 246007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 246007.png; path = ../../Images/246007.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				52657BE123FEE130005AFC66 /* AppDelegate.swift */,
 				52657BE323FEE130005AFC66 /* SceneDelegate.swift */,
 				52657BE523FEE130005AFC66 /* NotificationVC.swift */,
+				52657C0723FEF3AE005AFC66 /* 246007.png */,
 				52657BE723FEE130005AFC66 /* Main.storyboard */,
 				52657BEA23FEE133005AFC66 /* Assets.xcassets */,
 				52657BEC23FEE133005AFC66 /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52657C0823FEF3AE005AFC66 /* 246007.png in Resources */,
 				52657BEE23FEE133005AFC66 /* LaunchScreen.storyboard in Resources */,
 				52657BEB23FEE133005AFC66 /* Assets.xcassets in Resources */,
 				52657BE923FEE130005AFC66 /* Main.storyboard in Resources */,

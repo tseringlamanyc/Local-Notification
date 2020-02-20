@@ -22,6 +22,8 @@ class NotificationVC: UIViewController {
         }
     }
     
+    private var refreshControl: UIRefreshControl!
+    
     private let center = UNUserNotificationCenter.current()
     
     private let pendingNotification = PendingNotifications()
@@ -29,6 +31,8 @@ class NotificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        getRefresh()
+        refreshControl.addTarget(self, action: #selector(loadNotifications), for: .valueChanged)
         center.delegate = self
         checkForAuthorization()
         loadNotifications()
@@ -39,6 +43,12 @@ class NotificationVC: UIViewController {
             fatalError()
         }
         createVC.delegate = self
+    }
+    
+    private func getRefresh() {
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        loadNotifications()
     }
     
     private func checkForAuthorization() {
@@ -65,9 +75,14 @@ class NotificationVC: UIViewController {
         }
     }
     
+    @objc
     private func loadNotifications() {
         pendingNotification.getPendingNotifications { (request) in
             self.notifications = request
+            // stop the refresh control
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }
@@ -79,7 +94,30 @@ extension NotificationVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath)
+        let aNotification = notifications[indexPath.row]
+        cell.textLabel?.text = aNotification.content.title
+        cell.detailTextLabel?.text = aNotification.content.body
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // code for deletion here , delete pending notification
+            removeNotification(indexPath: indexPath)
+        }
+    }
+    
+    private func removeNotification(indexPath: IndexPath) {
+        let notification = notifications[indexPath.row]
+        let identifier = notification.identifier
+        // remove from UNNotificationCenter
+        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        // remove from array of notification
+        notifications.remove(at: indexPath.row)
+        
+        // remove from tableview
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
 

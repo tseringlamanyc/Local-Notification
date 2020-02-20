@@ -31,6 +31,7 @@ class CreateNotificationVC: UIViewController {
         content.title = titleText.text ?? "No title"
         content.body = "Local Notification is awesome"
         content.subtitle = "Learning local notification"
+        content.sound = .default
         
         // create identifier
         let identifier = UUID().uuidString
@@ -62,7 +63,6 @@ class CreateNotificationVC: UIViewController {
             }
         }
     }
-    
     
     @IBAction func dateChanged(_ sender: UIDatePicker) {
         // to avoid time in past
